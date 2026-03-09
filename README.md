@@ -7,13 +7,44 @@
 
 ![Dashboard](images/Mini%20Analytics%20Dashboard%20Layout.png)
 
-## Project Overview
+---
+
+# Project Overview
 
 This project performs **customer segmentation using RFM (Recency, Frequency, Monetary) analysis** to understand customer purchasing behavior and identify valuable customer groups.
 
 Using clustering techniques, customers are grouped into segments based on their purchasing patterns. These insights help businesses design targeted marketing strategies and improve customer retention.
 
 Customer segments were identified using **K-Means clustering** after scaling the RFM features.
+
+---
+
+# Featured Visualizations
+
+## Customer Segmentation Galaxy Map
+
+![Galaxy Map](images/customer%20segmentation%20galaxy%20map.png)
+
+This visualization presents customer clusters in a **galaxy-style scatter plot**, where each point represents a customer.
+
+- Color represents the cluster assignment
+- Size represents customer spending
+
+This visual provides an intuitive way to understand how customers naturally group based on purchasing behavior.
+
+---
+
+## 3D Customer Segmentation (RFM)
+
+![3D Segmentation](images/3D%20customer%20segmentation%20rfm.png)
+
+This 3D visualization shows customer segmentation across the three RFM dimensions:
+
+- **Recency** – how recently the customer made a purchase  
+- **Frequency** – how often the customer purchases  
+- **Monetary** – total amount spent by the customer  
+
+This view helps reveal how customer groups separate in multidimensional space.
 
 ---
 
@@ -25,7 +56,7 @@ Key questions include:
 
 - Who are the most valuable customers?
 - Which customers are at risk of churning?
-- How can marketing efforts be targeted effectively?
+- How should marketing campaigns be targeted?
 
 Customer segmentation helps answer these questions by grouping customers with similar behaviors.
 
@@ -38,7 +69,7 @@ The main objectives of this project are:
 - Understand customer purchasing behavior
 - Identify high-value customers
 - Segment customers into meaningful groups
-- Generate insights for marketing and business strategy
+- Generate insights for marketing strategies
 - Visualize customer behavior patterns
 
 ---
@@ -53,7 +84,7 @@ The dataset contains transactional data including:
 - Quantity
 - UnitPrice
 
-From these variables, the **RFM metrics** were calculated:
+From these variables, the **RFM metrics** were calculated.
 
 | Metric | Description |
 |------|-------------|
@@ -65,33 +96,33 @@ From these variables, the **RFM metrics** were calculated:
 
 # Methodology
 
-The project follows a typical **data science workflow**:
+The project follows a typical **data science workflow**.
 
-### 1. Data Cleaning
+## 1. Data Cleaning
+
 - Removed missing values
 - Filtered invalid transactions
 - Ensured consistent data formatting
 
-### 2. Feature Engineering
+## 2. Feature Engineering
+
 RFM metrics were calculated for each customer:
 
 - Recency
 - Frequency
 - Monetary
 
-### 3. Feature Scaling
+## 3. Feature Scaling
 
-Before clustering, features were standardized using  
-**StandardScaler** from the :contentReference[oaicite:1]{index=1} algorithm.
+Before clustering, features were standardized using **StandardScaler** from **Scikit-Learn**.
 
-### 4. Customer Segmentation
+## 4. Customer Segmentation
 
-Customers were segmented using  
-**K-Means Clustering** from :contentReference[oaicite:2]{index=2}.
+Customers were segmented using **K-Means Clustering**.
 
 The optimal number of clusters was determined using the **Elbow Method**.
 
-### 5. Data Visualization
+## 5. Data Visualization
 
 Multiple visualizations were created to explore customer behavior and interpret the clusters.
 
@@ -100,20 +131,23 @@ Multiple visualizations were created to explore customer behavior and interpret 
 # Visualizations
 
 ## RFM Correlation Heatmap
+
 ![RFM Heatmap](images/rfm%20correlation%20heatmap.png)
 
-This heatmap shows the relationship between Recency, Frequency, and Monetary values.
+Shows relationships between Recency, Frequency, and Monetary values.
 
 ---
 
 ## Revenue Contribution by Segment
+
 ![Revenue Segment](images/revenue%20contribution%20by%20segment.png)
 
-Shows which customer segments contribute the most revenue.
+Displays which customer segments contribute the most revenue.
 
 ---
 
 ## Revenue Contribution by Cluster
+
 ![Revenue Cluster](images/revenue%20contribution%20by%20customer%20cluster.png)
 
 Helps identify which clusters represent the most valuable customers.
@@ -121,13 +155,15 @@ Helps identify which clusters represent the most valuable customers.
 ---
 
 ## Frequency vs Monetary Distribution
+
 ![Frequency vs Monetary](images/frequency%20vs%20monetary.png)
 
-Visualizes how frequently customers purchase relative to how much they spend.
+Shows how frequently customers purchase relative to how much they spend.
 
 ---
 
 ## Customer Frequency Distribution
+
 ![Frequency Distribution](images/frequency%20distribution.png)
 
 Shows how often customers make purchases.
@@ -135,6 +171,7 @@ Shows how often customers make purchases.
 ---
 
 ## Customer Monetary Distribution
+
 ![Monetary Distribution](images/monetary%20distribution.png)
 
 Displays the distribution of customer spending.
@@ -142,13 +179,15 @@ Displays the distribution of customer spending.
 ---
 
 ## Log Transformed Monetary Distribution
+
 ![Log Monetary](images/log%20transformed%20monetary%20distribution.png)
 
-Log transformation was used to better understand the spending distribution.
+Log transformation helps visualize skewed spending distributions.
 
 ---
 
 ## Customer Recency Distribution
+
 ![Recency](images/recency%20distribution.png)
 
 Shows how recently customers made purchases.
@@ -156,16 +195,18 @@ Shows how recently customers made purchases.
 ---
 
 ## Elbow Method (Optimal Clusters)
+
 ![Elbow](images/elbow%20method.png)
 
-Used to determine the optimal number of clusters for K-Means.
+Used to determine the optimal number of clusters for K-Means clustering.
 
 ---
 
 ## Mini Analytics Dashboard
+
 ![Dashboard](images/Mini%20Analytics%20Dashboard%20Layout.png)
 
-A dashboard summarizing key customer segmentation insights.
+A simple dashboard summarizing key segmentation insights.
 
 ---
 
@@ -174,31 +215,35 @@ A dashboard summarizing key customer segmentation insights.
 From the segmentation analysis:
 
 - **VIP customers contribute the largest share of revenue**
-- **Loyal customers purchase frequently but spend slightly less per order**
+- **Loyal customers purchase frequently**
 - **At-risk customers have not purchased recently**
 - **Low-value customers purchase rarely and spend less**
 
-These insights can help businesses optimize marketing strategies.
+These insights help businesses focus marketing efforts more effectively.
 
 ---
 
 # Business Recommendations
 
-### VIP Customers
+## VIP Customers
+
 - Provide loyalty rewards
 - Offer exclusive promotions
 - Maintain strong engagement
 
-### Loyal Customers
-- Upsell premium products
-- Cross-sell complementary products
+## Loyal Customers
 
-### At-Risk Customers
+- Upsell premium products
+- Cross-sell complementary items
+
+## At-Risk Customers
+
 - Run re-engagement campaigns
 - Offer targeted discounts
 
-### Low-Value Customers
-- Use automated marketing strategies
+## Low-Value Customers
+
+- Use automated marketing
 - Encourage repeat purchases
 
 ---
@@ -212,7 +257,7 @@ The following tools were used in this project:
 - NumPy
 - Matplotlib
 - Seaborn
-- Scikit-learn
+- Scikit-Learn
 
 ---
 
@@ -221,7 +266,7 @@ The following tools were used in this project:
 **Rafid Musyaffa**
 
 LinkedIn:  
-www.linkedin.com/in/rafid-musyaffa-a75079312
+https://www.linkedin.com/in/rafid-musyaffa-a75079312
 
 GitHub Repository:  
 https://github.com/Rafidmusyaffa/customer-segmentation-analysis
@@ -233,6 +278,8 @@ https://share.google/NGKUF6mVQXxZAUGLA
 
 # Conclusion
 
-Customer segmentation using RFM analysis provides valuable insights into customer behavior. By applying machine learning techniques such as K-Means clustering, businesses can identify high-value customers and design more effective marketing strategies.
+Customer segmentation using **RFM analysis** provides valuable insights into customer behavior.
 
-This project demonstrates how data science techniques can be used to transform raw transactional data into actionable business insights.
+By applying machine learning techniques such as **K-Means clustering**, businesses can identify high-value customers and design more effective marketing strategies.
+
+This project demonstrates how **data science transforms raw transaction data into actionable business insights**.
